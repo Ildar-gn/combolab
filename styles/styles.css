@@ -1,0 +1,162 @@
+@import url('nebo.css');
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../fonts/Montserrat-ExtraBold.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --color-primary: #7e43d7;
+  --color-secondary: #bddb00;
+
+  --color-base-10: #17161d;
+  --color-base-90: #E3E2E9;
+  --color-base-100: #ffffff;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.visually-hidden {
+  position: absolute;
+  transform: scale(0);
+}
+
+body {
+  margin: 0;
+  font-family: "Montserrat", system-ui, "Arial", sans-serif;
+  background: fixed linear-gradient(transparent, var(--color-base-90) 100%),
+    fixed repeating-linear-gradient(var(--color-base-90),
+      var(--color-base-90),
+      transparent 1px,
+      transparent 40px),
+    fixed repeating-linear-gradient(to right,
+      var(--color-base-90),
+      var(--color-base-90) 1px,
+      transparent 1px,
+      transparent 40px) var(--color-base-100);
+}
+
+.section {
+  margin: 4rem 5%;
+}
+
+.container {
+  --gap-size: clamp(1rem, 0.3333rem + 2.2222vw, 2rem);
+  display: grid;
+  grid-template-columns: repeat(auto-fit,
+      minmax(clamp(calc(100% / 3 - var(--gap-size)), 49%, 15rem), 1fr));
+  max-width: 75rem;
+  margin-inline: auto;
+  gap: var(--gap-size);
+}
+
+.card {
+  display: grid;
+  place-items: end;
+  grid-template-areas: "card";
+  position: relative;
+}
+
+.card__header {
+  --radius: 10px;
+  --nb-r: var(--radius);
+  --nb-inner-r: 50px;
+  --nb-inner-o: 80px;
+  --nb-w: 70px;
+  --nb-h: var(--nb-w);
+
+  grid-area: card;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: var(--radius);
+  background-color: #17161d;
+  background-image: var(--img-house);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.card__header--img-house-1 {
+  --img-house: url("../img/house-1.webp");
+}
+
+.card__header--img-house-2 {
+  --img-house: url("../img/house-2.webp");
+}
+
+.card__header--img-house-3 {
+  --img-house: url("../img/house-3.webp");
+}
+
+.card__link {
+  grid-area: card;
+  display: grid;
+  place-items: center;
+  width: 80px;
+  aspect-ratio: 1;
+  margin-inline-end: -2px;
+  margin-block-end: -2px;
+  border-radius: 50%;
+  text-decoration: none;
+  background-color: #17161d;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.card__link::before {
+  width: 1.8rem;
+  aspect-ratio: 1;
+  mask-image: url("../img/arrow.svg");
+  mask-size: contain;
+  mask-position: center;
+  mask-repeat: no-repeat;
+  background-color: #bddb00;
+  rotate: -45deg;
+  scale: 1;
+  content: "";
+  transition: scale 0.3s ease-in-out;
+}
+
+.card__link:hover {
+  background-color: #7e43d7;
+}
+
+.card__link:hover::before {
+  scale: 1.3;
+}
+
+.card__link::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+}
+
+.hero {
+  display: grid;
+  place-items: center;
+  min-height: 200px;
+}
+
+.logo {
+  font-size: clamp(2rem, 1.65rem + 2.8vw, 3.75rem);
+  font-weight: 800;
+  color: #17161d;
+}
+
+.logo::before {
+  display: block;
+  max-width: clamp(3.75rem, 3.25rem + 4vw, 6.25rem);
+  aspect-ratio: 1;
+  margin-inline: auto;
+  margin-bottom: 1rem;
+  background-image: url("../img/logo.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  content: "";
+}
