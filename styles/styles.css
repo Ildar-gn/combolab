@@ -67,9 +67,9 @@ body {
 .card__header {
   --radius: 10px;
   --nb-r: var(--radius);
-  --nb-inner-r: 50px;
-  --nb-inner-o: 80px;
-  --nb-w: 70px;
+  --nb-curve-rw: 50px;
+  --nb-curve-rh: var(--nb-curve-rw);
+  --nb-w: 30px;
   --nb-h: var(--nb-w);
 
   grid-area: card;
